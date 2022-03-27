@@ -3,7 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32126.315
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentSystem", "StudentSystem\StudentSystem.csproj", "{D19AFFE2-7C30-43B9-9758-1A1D0FBE3A6D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentSystem", "StudentSystem\StudentSystem.csproj", "{D19AFFE2-7C30-43B9-9758-1A1D0FBE3A6D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{ADC8DED8-EE41-4645-990C-D654755FA39F}"
+	ProjectSection(SolutionItems) = preProject
+		BCA1.txt = BCA1.txt
+		BCA2.txt = BCA2.txt
+		BCA3.txt = BCA3.txt
+		HCERT.txt = HCERT.txt
+		POSTGRAD.txt = POSTGRAD.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

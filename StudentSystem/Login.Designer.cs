@@ -31,7 +31,7 @@ namespace StudentSystem
         {
             this.label1 = new System.Windows.Forms.Label();
             this.txtUserName = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
@@ -42,7 +42,7 @@ namespace StudentSystem
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(62, 9);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(302, 67);
             this.label1.TabIndex = 0;
@@ -51,24 +51,24 @@ namespace StudentSystem
             // txtUserName
             // 
             this.txtUserName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtUserName.Location = new System.Drawing.Point(85, 181);
+            this.txtUserName.Location = new System.Drawing.Point(25, 170);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(250, 34);
             this.txtUserName.TabIndex = 1;
             // 
-            // textBox1
+            // txtPassword
             // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(85, 318);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(250, 34);
-            this.textBox1.TabIndex = 2;
+            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtPassword.Location = new System.Drawing.Point(25, 277);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Size = new System.Drawing.Size(250, 34);
+            this.txtPassword.TabIndex = 2;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(85, 141);
+            this.label2.Location = new System.Drawing.Point(25, 130);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(154, 37);
             this.label2.TabIndex = 3;
@@ -78,7 +78,7 @@ namespace StudentSystem
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(85, 278);
+            this.label3.Location = new System.Drawing.Point(25, 237);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(134, 37);
             this.label3.TabIndex = 4;
@@ -86,7 +86,7 @@ namespace StudentSystem
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(85, 424);
+            this.btnLogin.Location = new System.Drawing.Point(25, 369);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(94, 35);
             this.btnLogin.TabIndex = 5;
@@ -96,23 +96,24 @@ namespace StudentSystem
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(241, 424);
+            this.btnRegister.Location = new System.Drawing.Point(181, 369);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(94, 35);
             this.btnRegister.TabIndex = 6;
             this.btnRegister.Text = "REGISTER";
             this.btnRegister.UseVisualStyleBackColor = true;
+            this.btnRegister.Click += new System.EventHandler(this.btnRegister_Click);
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 566);
+            this.ClientSize = new System.Drawing.Size(321, 464);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUserName);
             this.Controls.Add(this.label1);
             this.Name = "Login";
@@ -126,7 +127,7 @@ namespace StudentSystem
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtUserName;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnLogin;
