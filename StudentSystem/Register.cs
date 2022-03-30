@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentSystem.Validators;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +20,9 @@ namespace StudentSystem
         public string BCA2 = @"C:\Users\lab_services_student\source\repos\StudentRegSystem\BCA2.txt";
         public string BCA3 = @"C:\Users\lab_services_student\source\repos\StudentRegSystem\BCA3.txt";
         public string POSTGRAD = @"C:\Users\lab_services_student\source\repos\StudentRegSystem\POSTGRAD.txt";
+
+        public StudentInfoValidator infoValidator = new StudentInfoValidator();
+        public StudentModuleValidator moduleValidator = new StudentModuleValidator();
         public Register()
         {
             InitializeComponent();
@@ -26,29 +30,7 @@ namespace StudentSystem
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            string firstName, lastName, password, studentNumber,yearOfReg,group;
-            string userNameCourse;
-            studentNumber = txtbStudentNumber.Text;
-            firstName = txtbFirstName.Text;
-            lastName = txtbLastName.Text;
-            password = txtbPassword.Text;
-            yearOfReg = cmbYearOfReg.SelectedItem.ToString();
-            group = cmbGroup.SelectedItem.ToString();
-
-            var Modules = new List<string>();
-
-            foreach (var module in chkbModules.CheckedItems)
-            {
-                Modules.Add(module.ToString()); //Adds all the checked items into the List
-            }
-            
-            StudentDetails student = new StudentDetails(studentNumber,firstName,lastName,password); // The student class is used to capture the details of the user
-            student.AddStudentDetails();
-            
-
-            userNameCourse = txtbStudentNumber.Text + "_" + yearOfReg;
-            StudentModules studentModules = new StudentModules(yearOfReg, Modules, group, userNameCourse);
-            studentModules.AddStudentDetails();
+            addStudentInfo();
         }
 
         private void cmbYearOfReg_SelectedIndexChanged(object sender, EventArgs e) // Reads a textfile so the appropriate modules are loaded
@@ -103,37 +85,49 @@ namespace StudentSystem
                 chkbModulesRepeat.Visible = true;
                 cmbGroupRepeat.Visible = true;
                 cmbYearRepeat.Visible = true;
+                btnRepeatModules.Visible = true;
             }
             else
             {
                 chkbModulesRepeat.Visible = false;
                 cmbGroupRepeat.Visible = false;
                 cmbYearRepeat.Visible = false;
+                btnRepeatModules.Visible = false;
             }
             
         }
 
         private void btnRepeatModules_Click(object sender, EventArgs e)
         {
-            string userNameCourse, group, course;
-
-            userNameCourse = txtbStudentNumber.Text+"_"+cmbYearRepeat.SelectedItem.ToString();
-            group = cmbGroupRepeat.SelectedItem.ToString();
-            course = cmbYearRepeat.SelectedItem.ToString();
-            if (cmbYearRepeat.SelectedIndex < cmbYearOfReg.SelectedIndex)
+            try
             {
-                var RepeatModules = new List<string>();
-                foreach (var module in chkbModulesRepeat.CheckedItems)
+                string userNameCourse = txtbStudentNumber.Text + "_" + cmbYearRepeat.SelectedItem.ToString();
+                string group = cmbGroupRepeat.SelectedItem.ToString();
+                string course = cmbYearRepeat.SelectedItem.ToString();
+                if (cmbYearRepeat.SelectedIndex < cmbYearOfReg.SelectedIndex)
                 {
-                    RepeatModules.Add(module.ToString()); //Adds all the checked items into the List
-                }
+                    var RepeatModules = new List<string>();
+                    foreach (var module in chkbModulesRepeat.CheckedItems)
+                    {
+                        RepeatModules.Add(module.ToString()); //Adds all the checked items into the List
+                    }
+                    string modules = null;
+                    foreach (var item in RepeatModules)
+                    {
+                        modules += item + ",";
+                    }
 
-                StudentModules studentModules = new StudentModules(course,RepeatModules,group,userNameCourse);
-                studentModules.AddStudentDetails();
+                    StudentModules studentModules = new StudentModules(course, modules, group, userNameCourse);
+                    studentModules.AddStudentDetails();
+                }
+                else
+                {
+                    MessageBox.Show("Please choose the correct course");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Please choose the correct course");
+                MessageBox.Show(ex.Message);
             }
             
 
@@ -160,7 +154,86 @@ namespace StudentSystem
                     break;
             }
         }
-    }
 
-    
+        private void Register_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Hide();
+            Login login = new Login();
+            login.ShowDialog();
+        }
+
+        private void addStudentInfo() 
+        {
+            try
+            { 
+                string studentNumber = txtbStudentNumber.Text;
+                string firstName = txtbFirstName.Text;
+                string lastName = txtbLastName.Text;
+                string password = txtbPassword.Text;
+
+                StudentDetails student = new StudentDetails(studentNumber, firstName, lastName, password); // The student class is used to capture the details of the user
+                var result = infoValidator.Validate(student);
+                if (result.IsValid)
+                { 
+                    student.AddStudentDetails();
+                    addStudentModules();
+                }
+                else
+                {
+                    foreach (var item in result.Errors)
+                    {
+                        MessageBox.Show($"{item.ErrorMessage}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void addStudentModules() 
+        {
+            try
+            { 
+                string yearOfReg = cmbYearOfReg.SelectedItem.ToString();
+                string group = cmbGroup.SelectedItem.ToString();
+
+                var Modules = new List<string>();
+
+                foreach (var module in chkbModules.CheckedItems)
+                {
+                    Modules.Add(module.ToString()); //Adds all the checked items into the List
+                }
+                string modules = null;
+                foreach (var item in Modules)
+                {
+                    modules += item + ",";
+                }
+
+                string userNameCourse = txtbStudentNumber.Text + "_" + yearOfReg;
+                StudentModules studentModules = new StudentModules(yearOfReg, modules, group, userNameCourse);
+
+                var valid = moduleValidator.Validate(studentModules);
+                if (valid.IsValid)
+                {
+                    studentModules.AddStudentDetails();
+                }
+                else
+                {
+                    foreach (var item in valid.Errors)
+                    {
+                        MessageBox.Show($"{item.ErrorMessage}");
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+    } 
 }

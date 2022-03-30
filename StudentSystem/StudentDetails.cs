@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace StudentSystem
 {
-    class StudentDetails
+    public class StudentDetails
     {
         public string StudentNumber { get; set; }
         public string FirstName { get; set; }
