@@ -27,6 +27,7 @@ namespace StudentSystem
         private void btnRegister_Click(object sender, EventArgs e)
         {
             string firstName, lastName, password, studentNumber,yearOfReg,group;
+            string userNameCourse;
             studentNumber = txtbStudentNumber.Text;
             firstName = txtbFirstName.Text;
             lastName = txtbLastName.Text;
@@ -40,9 +41,14 @@ namespace StudentSystem
             {
                 Modules.Add(module.ToString()); //Adds all the checked items into the List
             }
+            
+            StudentDetails student = new StudentDetails(studentNumber,firstName,lastName,password); // The student class is used to capture the details of the user
+            student.AddStudentDetails();
+            
 
-            StudentClass student = new StudentClass(studentNumber,firstName,lastName,password,yearOfReg,group,Modules); // The student class is used to capture the details of the user
-            student.AddStudent();
+            userNameCourse = txtbStudentNumber.Text + "_" + yearOfReg;
+            StudentModules studentModules = new StudentModules(yearOfReg, Modules, group, userNameCourse);
+            studentModules.AddStudentDetails();
         }
 
         private void cmbYearOfReg_SelectedIndexChanged(object sender, EventArgs e) // Reads a textfile so the appropriate modules are loaded
@@ -87,6 +93,71 @@ namespace StudentSystem
             catch (Exception e)
             {
                 MessageBox.Show("An error occured and your modules could not be loaded. Please contact an admin for assitance");
+            }
+        }
+
+        private void chkRepeatModules_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkRepeatModules.Checked)
+            {
+                chkbModulesRepeat.Visible = true;
+                cmbGroupRepeat.Visible = true;
+                cmbYearRepeat.Visible = true;
+            }
+            else
+            {
+                chkbModulesRepeat.Visible = false;
+                cmbGroupRepeat.Visible = false;
+                cmbYearRepeat.Visible = false;
+            }
+            
+        }
+
+        private void btnRepeatModules_Click(object sender, EventArgs e)
+        {
+            string userNameCourse, group, course;
+
+            userNameCourse = txtbStudentNumber.Text+"_"+cmbYearRepeat.SelectedItem.ToString();
+            group = cmbGroupRepeat.SelectedItem.ToString();
+            course = cmbYearRepeat.SelectedItem.ToString();
+            if (cmbYearRepeat.SelectedIndex < cmbYearOfReg.SelectedIndex)
+            {
+                var RepeatModules = new List<string>();
+                foreach (var module in chkbModulesRepeat.CheckedItems)
+                {
+                    RepeatModules.Add(module.ToString()); //Adds all the checked items into the List
+                }
+
+                StudentModules studentModules = new StudentModules(course,RepeatModules,group,userNameCourse);
+                studentModules.AddStudentDetails();
+            }
+            else
+            {
+                MessageBox.Show("Please choose the correct course");
+            }
+            
+
+        }
+
+        private void cmbYearRepeat_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cmbYearOfReg.SelectedIndex)
+            {
+                case 0:
+                    setModules(HCERT);
+                    break;
+                case 1:
+                    setModules(BCA1);
+                    break;
+                case 2:
+                    setModules(BCA2);
+                    break;
+                case 3:
+                    setModules(BCA3);
+                    break;
+                case 4:
+                    setModules(POSTGRAD);
+                    break;
             }
         }
     }
