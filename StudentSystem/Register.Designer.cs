@@ -53,9 +53,9 @@ namespace StudentSystem
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(30, 9);
+            this.label1.Location = new System.Drawing.Point(34, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(370, 54);
+            this.label1.Size = new System.Drawing.Size(463, 67);
             this.label1.TabIndex = 0;
             this.label1.Text = "STUDENT REGISTER";
             // 
@@ -63,9 +63,9 @@ namespace StudentSystem
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(24, 93);
+            this.label2.Location = new System.Drawing.Point(27, 124);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(148, 21);
+            this.label2.Size = new System.Drawing.Size(185, 28);
             this.label2.TabIndex = 1;
             this.label2.Text = "STUDENT NUMBER:";
             // 
@@ -73,9 +73,9 @@ namespace StudentSystem
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(238, 93);
+            this.label3.Location = new System.Drawing.Point(272, 124);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(97, 21);
+            this.label3.Size = new System.Drawing.Size(121, 28);
             this.label3.TabIndex = 2;
             this.label3.Text = "PASSWORD:";
             // 
@@ -83,9 +83,9 @@ namespace StudentSystem
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(24, 156);
+            this.label4.Location = new System.Drawing.Point(27, 208);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(100, 21);
+            this.label4.Size = new System.Drawing.Size(125, 28);
             this.label4.TabIndex = 3;
             this.label4.Text = "FIRST NAME:";
             // 
@@ -93,42 +93,38 @@ namespace StudentSystem
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(238, 156);
+            this.label5.Location = new System.Drawing.Point(272, 208);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(96, 21);
+            this.label5.Size = new System.Drawing.Size(121, 28);
             this.label5.TabIndex = 4;
             this.label5.Text = "LAST NAME:";
             // 
             // txtbStudentNumber
             // 
-            this.txtbStudentNumber.Location = new System.Drawing.Point(24, 116);
-            this.txtbStudentNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtbStudentNumber.Location = new System.Drawing.Point(27, 155);
             this.txtbStudentNumber.Name = "txtbStudentNumber";
-            this.txtbStudentNumber.Size = new System.Drawing.Size(162, 23);
+            this.txtbStudentNumber.Size = new System.Drawing.Size(185, 27);
             this.txtbStudentNumber.TabIndex = 6;
             // 
             // txtbPassword
             // 
-            this.txtbPassword.Location = new System.Drawing.Point(238, 116);
-            this.txtbPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtbPassword.Location = new System.Drawing.Point(272, 155);
             this.txtbPassword.Name = "txtbPassword";
-            this.txtbPassword.Size = new System.Drawing.Size(162, 23);
+            this.txtbPassword.Size = new System.Drawing.Size(185, 27);
             this.txtbPassword.TabIndex = 7;
             // 
             // txtbFirstName
             // 
-            this.txtbFirstName.Location = new System.Drawing.Point(24, 179);
-            this.txtbFirstName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtbFirstName.Location = new System.Drawing.Point(27, 239);
             this.txtbFirstName.Name = "txtbFirstName";
-            this.txtbFirstName.Size = new System.Drawing.Size(162, 23);
+            this.txtbFirstName.Size = new System.Drawing.Size(185, 27);
             this.txtbFirstName.TabIndex = 8;
             // 
             // txtbLastName
             // 
-            this.txtbLastName.Location = new System.Drawing.Point(238, 179);
-            this.txtbLastName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtbLastName.Location = new System.Drawing.Point(272, 239);
             this.txtbLastName.Name = "txtbLastName";
-            this.txtbLastName.Size = new System.Drawing.Size(162, 23);
+            this.txtbLastName.Size = new System.Drawing.Size(185, 27);
             this.txtbLastName.TabIndex = 9;
             // 
             // cmbYearOfReg
@@ -141,10 +137,9 @@ namespace StudentSystem
             "BCA 2",
             "BCA 3",
             "POST GRADUATION"});
-            this.cmbYearOfReg.Location = new System.Drawing.Point(24, 267);
-            this.cmbYearOfReg.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbYearOfReg.Location = new System.Drawing.Point(27, 356);
             this.cmbYearOfReg.Name = "cmbYearOfReg";
-            this.cmbYearOfReg.Size = new System.Drawing.Size(162, 28);
+            this.cmbYearOfReg.Size = new System.Drawing.Size(185, 33);
             this.cmbYearOfReg.TabIndex = 10;
             this.cmbYearOfReg.Text = "YEAR OF REGISTER";
             this.cmbYearOfReg.SelectedIndexChanged += new System.EventHandler(this.cmbYearOfReg_SelectedIndexChanged);
@@ -155,10 +150,9 @@ namespace StudentSystem
             this.chkbModules.FormattingEnabled = true;
             this.chkbModules.Items.AddRange(new object[] {
             ""});
-            this.chkbModules.Location = new System.Drawing.Point(24, 319);
-            this.chkbModules.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.chkbModules.Location = new System.Drawing.Point(27, 425);
             this.chkbModules.Name = "chkbModules";
-            this.chkbModules.Size = new System.Drawing.Size(189, 172);
+            this.chkbModules.Size = new System.Drawing.Size(215, 207);
             this.chkbModules.TabIndex = 11;
             // 
             // cmbGroup
@@ -169,20 +163,18 @@ namespace StudentSystem
             "GROUP 1",
             "GROUP 2",
             "GROUP 3"});
-            this.cmbGroup.Location = new System.Drawing.Point(24, 512);
-            this.cmbGroup.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbGroup.Location = new System.Drawing.Point(27, 683);
             this.cmbGroup.Name = "cmbGroup";
-            this.cmbGroup.Size = new System.Drawing.Size(162, 28);
+            this.cmbGroup.Size = new System.Drawing.Size(185, 33);
             this.cmbGroup.TabIndex = 12;
-            this.cmbGroup.Text = "GROUP";
+            this.cmbGroup.Text = "GROUP 1";
             // 
             // btnRegister
             // 
             this.btnRegister.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnRegister.Location = new System.Drawing.Point(24, 573);
-            this.btnRegister.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRegister.Location = new System.Drawing.Point(27, 764);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(162, 31);
+            this.btnRegister.Size = new System.Drawing.Size(185, 41);
             this.btnRegister.TabIndex = 13;
             this.btnRegister.Text = "REGISTER";
             this.btnRegister.UseVisualStyleBackColor = true;
@@ -192,9 +184,10 @@ namespace StudentSystem
             // 
             this.chkRepeatModules.AutoSize = true;
             this.chkRepeatModules.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.chkRepeatModules.Location = new System.Drawing.Point(24, 227);
+            this.chkRepeatModules.Location = new System.Drawing.Point(27, 303);
+            this.chkRepeatModules.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.chkRepeatModules.Name = "chkRepeatModules";
-            this.chkRepeatModules.Size = new System.Drawing.Size(158, 25);
+            this.chkRepeatModules.Size = new System.Drawing.Size(195, 32);
             this.chkRepeatModules.TabIndex = 14;
             this.chkRepeatModules.Text = "REPEAT MODULES";
             this.chkRepeatModules.UseVisualStyleBackColor = true;
@@ -208,12 +201,11 @@ namespace StudentSystem
             "GROUP 1",
             "GROUP 2",
             "GROUP 3"});
-            this.cmbGroupRepeat.Location = new System.Drawing.Point(238, 512);
-            this.cmbGroupRepeat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbGroupRepeat.Location = new System.Drawing.Point(272, 683);
             this.cmbGroupRepeat.Name = "cmbGroupRepeat";
-            this.cmbGroupRepeat.Size = new System.Drawing.Size(162, 28);
+            this.cmbGroupRepeat.Size = new System.Drawing.Size(185, 33);
             this.cmbGroupRepeat.TabIndex = 17;
-            this.cmbGroupRepeat.Text = "GROUP";
+            this.cmbGroupRepeat.Text = "GROUP 1";
             this.cmbGroupRepeat.Visible = false;
             // 
             // chkbModulesRepeat
@@ -222,10 +214,9 @@ namespace StudentSystem
             this.chkbModulesRepeat.FormattingEnabled = true;
             this.chkbModulesRepeat.Items.AddRange(new object[] {
             ""});
-            this.chkbModulesRepeat.Location = new System.Drawing.Point(238, 319);
-            this.chkbModulesRepeat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.chkbModulesRepeat.Location = new System.Drawing.Point(272, 425);
             this.chkbModulesRepeat.Name = "chkbModulesRepeat";
-            this.chkbModulesRepeat.Size = new System.Drawing.Size(189, 172);
+            this.chkbModulesRepeat.Size = new System.Drawing.Size(215, 207);
             this.chkbModulesRepeat.TabIndex = 16;
             this.chkbModulesRepeat.Visible = false;
             // 
@@ -239,10 +230,9 @@ namespace StudentSystem
             "BCA 2",
             "BCA 3",
             "POST GRADUATION"});
-            this.cmbYearRepeat.Location = new System.Drawing.Point(238, 267);
-            this.cmbYearRepeat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cmbYearRepeat.Location = new System.Drawing.Point(272, 356);
             this.cmbYearRepeat.Name = "cmbYearRepeat";
-            this.cmbYearRepeat.Size = new System.Drawing.Size(162, 28);
+            this.cmbYearRepeat.Size = new System.Drawing.Size(185, 33);
             this.cmbYearRepeat.TabIndex = 15;
             this.cmbYearRepeat.Text = "YEAR OF REGISTER";
             this.cmbYearRepeat.Visible = false;
@@ -251,20 +241,20 @@ namespace StudentSystem
             // btnRepeatModules
             // 
             this.btnRepeatModules.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnRepeatModules.Location = new System.Drawing.Point(238, 573);
-            this.btnRepeatModules.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRepeatModules.Location = new System.Drawing.Point(272, 764);
             this.btnRepeatModules.Name = "btnRepeatModules";
-            this.btnRepeatModules.Size = new System.Drawing.Size(162, 31);
+            this.btnRepeatModules.Size = new System.Drawing.Size(185, 41);
             this.btnRepeatModules.TabIndex = 18;
             this.btnRepeatModules.Text = "REGISTER REPEAT MODULES";
             this.btnRepeatModules.UseVisualStyleBackColor = true;
+            this.btnRepeatModules.Visible = false;
             this.btnRepeatModules.Click += new System.EventHandler(this.btnRepeatModules_Click);
             // 
             // Register
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(450, 643);
+            this.ClientSize = new System.Drawing.Size(514, 857);
             this.Controls.Add(this.btnRepeatModules);
             this.Controls.Add(this.cmbGroupRepeat);
             this.Controls.Add(this.chkbModulesRepeat);
@@ -283,9 +273,9 @@ namespace StudentSystem
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Register";
             this.Text = "Register";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Register_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

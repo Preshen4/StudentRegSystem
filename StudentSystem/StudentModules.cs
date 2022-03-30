@@ -9,15 +9,15 @@ using System.Windows.Forms;
 
 namespace StudentSystem
 {
-    class StudentModules
+    public class StudentModules
     {
 
         public string RegYear { get; set; }
-        public List<string> Modules { get; set; }
+        public string Modules { get; set; }
         public string Group { get; set; }
         public string UserName_Course { get; set; }
 
-        public StudentModules(string regYear, List<string> modules, string group, string userName_Course)
+        public StudentModules(string regYear, string modules, string group, string userName_Course)
         {
             RegYear = regYear;
             Modules = modules;
@@ -26,12 +26,6 @@ namespace StudentSystem
         }
         public void AddStudentDetails()
         {
-            string modules=null;
-            foreach (var item in Modules)
-            {
-                modules += item + ",";
-            }
-
             try
             {
                 string query = "INSERT INTO StudentCourse VALUES (@StudentNumber_Course,@Module,@CourseGroup,@Course)"; // Inserting values into the database
@@ -42,7 +36,7 @@ namespace StudentSystem
                 using (SqlCommand cmd = new SqlCommand(query, cnn))
                 {
                     cmd.Parameters.Add("@StudentNumber_Course", SqlDbType.VarChar).Value = UserName_Course; // Adds the details into the database
-                    cmd.Parameters.Add("@Module", SqlDbType.VarChar).Value = modules;
+                    cmd.Parameters.Add("@Module", SqlDbType.VarChar).Value = Modules;
                     cmd.Parameters.Add("@CourseGroup", SqlDbType.VarChar).Value = Group;
                     cmd.Parameters.Add("@Course", SqlDbType.VarChar).Value = RegYear;
 
