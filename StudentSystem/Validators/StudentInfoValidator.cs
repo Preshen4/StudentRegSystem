@@ -26,7 +26,8 @@ namespace StudentSystem.Validators
             RuleFor(pw => pw.Password)
                .Cascade(CascadeMode.StopOnFirstFailure)
                .NotEmpty().WithMessage("{PropertyName} is empty")
-               .Length(2, 20).WithMessage("Length of {PropertyName} is Invalid");
+               .Length(8, 20).WithMessage("Length of {PropertyName} is Invalid")
+               .Must(BeAValidPassword).WithMessage("{PropertyName} is not valid");
 
             RuleFor(sn => sn.StudentNumber)
                .Cascade(CascadeMode.StopOnFirstFailure)
@@ -50,6 +51,35 @@ namespace StudentSystem.Validators
             studentNumber = studentNumber.Replace("st", "");
 
             return studentNumber.All(char.IsDigit);
+        }
+
+        protected bool BeAValidPassword(string password)
+        {
+            int validConditions = 0;
+            foreach (char c in password)
+            {
+                if (c >= 'A' && c <= 'Z')
+                {
+                    validConditions++;
+                    break;
+                }
+            }
+            if (validConditions == 0) return false;
+            foreach (char c in password)
+            {
+                if (c >= '0' && c <= '9')
+                {
+                    validConditions++;
+                    break;
+                }
+            }
+            if (validConditions == 1) return false;
+            if (validConditions == 2)
+            {
+                char[] special = { '@', '#', '$', '%', '^', '&', '+', '=' }; // or whatever    
+                if (password.IndexOfAny(special) == -1) return false;
+            }
+            return true;
         }
 
     }
